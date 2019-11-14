@@ -29,12 +29,15 @@ public class HibernateUtil {
             props.put("hibernate.current_session_context_class", "thread");
             props.put("hibernate.hbm2ddl.auto", "update");
             props.put("hibernate.show_sql", "true");
+
+            //Second Level Cache
+            props.put("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+            props.put("hibernate.cache.use_second_level_cache", "true");
+            props.put("hibernate.cache.use_query_cache", "true");
+            props.put("net.sf.ehcache.configurationResourceName", "/myehcache.xml");
             configuration.setProperties(props);
 
-            //we can set mapping file or class with annotation
-            //addClass(Employee1.class) will look for resource
-            // com/journaldev/hibernate/model/Employee1.hbm.xml (not good)
-            //configuration.addAnnotatedClass(Employee.class);
+
             configuration.addAnnotatedClass(com.start.Test2HQL.Employee.class);
             configuration.addAnnotatedClass(com.start.Test2HQL.Address.class);
 

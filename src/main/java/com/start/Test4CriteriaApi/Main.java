@@ -39,6 +39,9 @@ public class Main {
                     +", CarList= "+author.getCarList());
         }
 
+        tx.commit();
+        session.close();
+        sessionFactory.close();
 
     }
 }

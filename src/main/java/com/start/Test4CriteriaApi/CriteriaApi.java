@@ -42,5 +42,9 @@ public class CriteriaApi {
         }
 
 
+        tx.commit();
+        session.close();
+        sessionFactory.close();
+
     }
 }

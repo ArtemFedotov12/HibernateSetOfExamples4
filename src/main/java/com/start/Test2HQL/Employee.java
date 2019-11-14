@@ -3,7 +3,9 @@ package com.start.Test2HQL;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 
@@ -12,7 +14,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee {
+//@Cache(usage= CacheConcurrencyStrategy.READ_ONLY, region="employee")
+    public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
